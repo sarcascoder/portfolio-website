@@ -2,20 +2,153 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html, body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  transition: background-color 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+.hvr {
+  color: transparent;
+  -webkit-text-stroke: 0.5px #171716;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  
+  /* Option 1: Segoe UI - Very similar to Calibri */
+  /* font-family: 'Segoe UI', sans-serif; */
+  
+  /* Option 2: Open Sans - Clean and modern like Calibri */
+  /* font-family: 'Open Sans', sans-serif; */
+  
+  /* Option 3: Nunito - Has rounded terminals similar to Calibri */
+  /* font-family: 'Nunito', sans-serif; */
+  
+  /* Option 4: Lato - Clean and versatile */
+  /* font-family: 'Lato', sans-serif; */
+  
+  /* Option 5: Carlito - Specifically designed as a Calibri alternative */
+  font-family: 'Carlito', sans-serif;
+
+  font-size: 3.8rem;
+}
+
+
+/* Light mode hover */
+body.light-mode .hvr:hover {
+  color: #000; /* Black text on hover in light mode */
+  -webkit-text-stroke: 0; /* Remove stroke on hover */
+}
+
+/* Dark mode text and hover */
+body.dark-mode .hvr {
+  color: transparent;
+  -webkit-text-stroke: 0.5px #fff; /* White stroke for dark mode */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .hvr:hover {
+  color: #fff; /* White text on hover in dark mode */
+  -webkit-text-stroke: 0; /* Remove stroke on hover */
+}
+
+
+
+/* Custom text selection styling */
+p::selection {
+  color: #fff;
+  background-color: #000;
+}
+
+/* For ensuring compatibility with Shery.js */
+.shery-img-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* For magnetic elements */
+.magnet {
+  cursor: pointer;
+}
+
+/* For image effects */
+.images {
+  position: relative;
+  width: 100%;
+}
+
+/* globals.css - corrected version */
+:root {
+  --background-light:#ffffffde;
+  --text-light: #333;
+  --background-dark: #222;
+  --text-dark: #ffffff;
+}
+
+/* Remove the space between body and the class name */
+body.light-mode {
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+
+body.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-dark); /* Fixed to use dark text color */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+
+
+/* Dark mode version */
+body.dark-mode .hvr {
+  -webkit-text-stroke: 0.5px #fff; /* White stroke for dark mode */
+}
+
+/* Hover states */
+.hvr:hover {
+  color: #000; /* Fill with solid color on hover */
+  -webkit-text-stroke: 0; /* Remove stroke on hover */
+}
+
+body.dark-mode .hvr:hover {
+  color: #fff; /* Fill with white on hover in dark mode */
+  -webkit-text-stroke: 0;
+}
+
+
+
+
+p::selection {
+  color: #fff;
+  background-color: #000;
+}
+
+.images {
+  width: 100%;
+}
+
+
+
+
+
+
+/* Alternative hollow text effect using text-shadow */
+.text-outline {
+  color: transparent;
+  text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+
